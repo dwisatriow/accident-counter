@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
+
+const reducer = (count: number, newValue: number) => {
+  return newValue;
+};
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useReducer(reducer, 0);
   const [draftCount, setDraftCount] = useState(0);
+
+  setCount(4);
 
   useEffect(() => {
     setDraftCount(count);
